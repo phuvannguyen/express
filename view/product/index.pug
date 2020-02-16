@@ -1,0 +1,21 @@
+extends ../layouts/common
+block content
+	h1 Product
+	.d-flex.align-items-center
+		form.ml-auto(action="/user/search", method="GET", class="d-flex")
+			input(type="text", name="name", class="form-control")
+			button(class="btn btn-primary ml-2") Search
+
+	.row
+		each val in products
+			.col-sm.col-md-4.col-lg-3
+				.card.mb-3
+					img.card-img-top(src= val.image)
+					h5.card-title= val.name
+					p.card-text= val.description	
+					a.btn.btn-primary(href='/cart/add/' + val._id) Add to cart
+	nav(aria-label='Page navigation example').d-flex.justify-content-end.p-2
+		ul.pagination
+			each value, index in panigations
+				li.page-item
+					a.page-link(href='/product/?page=' + (panigations[panigations.length - 2] - (panigations.length- 2 - index)))= value				

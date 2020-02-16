@@ -1,0 +1,12 @@
+extends ../layouts/common
+block content
+	h1 Transfer
+	
+	form(method="POST")
+		input(type='hidden', name="_csrf", value=csrfToken)
+		.form-group
+			label(for="acount") Account
+			input#acount.form-control(type="text" name='acount')
+			label(for="amount") Amount
+			input#amount.form-control(type="number" name='amount')
+		button.btn.btn-primary Send

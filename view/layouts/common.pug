@@ -1,0 +1,29 @@
+html
+  head
+    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css', integrity='sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh', crossorigin='anonymous')
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      a.navbar-brand(href='/') CorderToyo
+      button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+        span.navbar-toggler-icon
+      #navbarSupportedContent.collapse.navbar-collapse
+        ul.navbar-nav.mr-auto
+          li.nav-item.active
+            a.nav-link(href='/') Home
+          li.nav-item.active
+            a.nav-link(href='/user') Users
+          li.nav-item.active
+            a.nav-link(href='/product') Product
+          li.nav-item.d-flex.align-items-center
+            a.nav-link(href='/cart') Carts
+            if cart
+              span.badge.badge-primary= cart
+          li.nav-item
+            a.nav-link(href="/transfer/create") Transfer      
+
+      if user
+        p= user.name
+
+    .container.pt-5
+      block content
+
